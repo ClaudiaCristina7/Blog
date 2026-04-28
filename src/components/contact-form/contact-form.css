@@ -1,0 +1,143 @@
+.form-container {
+  position: relative;
+  width: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  margin-right: 4rem;
+}
+
+.contact-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.081);
+  border-radius: 10px;
+  padding: 1rem 1rem 5rem;
+  max-height: 100vh;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.form-field label {
+  width: 180px;
+  min-width: 180px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-weight: bold;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.form-field input {
+  width: 350px;
+  min-width: 350px;
+  height: 50px;
+  padding: 1rem;
+  border: 1px solid #444242f7;
+  border-radius: 15px;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.637);
+}
+
+.name-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+}
+.name-input input {
+  width: 165px;
+  padding: 1rem;
+  border: 1px solid #444242f7;
+  border-radius: 15px;
+  min-width: 0;
+  background-color: rgba(255, 255, 255, 0.637);
+  margin-bottom: 1rem;
+  height: 50px;
+}
+
+.name-input label {
+  min-width: 190px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+.message-input {
+  width: 350px;
+  height: 160px;
+  padding: 0.5rem;
+  border: 1px solid #ccccccdc;
+  border-radius: 15px;
+}
+
+.submit-button {
+  width: 140px;
+  height: 50px;
+  background-color: #12488edf;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.select-input {
+  width: 350px;
+  height: 50px;
+  min-width: 350px;
+  padding: 0 1rem;
+  border: 1px solid #444242f7;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.637);
+  border-radius: 15px;
+}
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.form-title {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.form-message {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-right: 2rem;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.message textarea {
+  width: 570px;
+  max-height: 130px;
+  padding: 12px;
+  resize: vertical;
+  font-size: 1rem;
+  border: 1px solid #444242f7;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.637);
+}

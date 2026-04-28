@@ -1,0 +1,19 @@
+.search-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.search {
+  width: 20px;
+  height: 20px;
+  top: 30px;
+  opacity: 100%;
+}
+.search-icon img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1) contrast(70);
+  opacity: 60%;
+}

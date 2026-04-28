@@ -1,0 +1,8 @@
+.page-section {
+  max-width: 1300px;
+  padding: 20px 20px;
+  z-index: 20;
+  background: white;
+  align-items: center;
+  margin: auto;
+}

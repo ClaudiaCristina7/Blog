@@ -1,0 +1,23 @@
+.author {
+  font-size: 1rem;
+  color: white;
+  padding: 2rem 5rem;
+  font-style: italic;
+}
+
+.second-hero-centered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10rem;
+}
+
+.category {
+  font-size: 10rem;
+}
+.second-page .date,
+.second-page .horizontal-line,
+.second-page .pagination {
+  display: none;
+}

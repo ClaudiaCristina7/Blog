@@ -1,0 +1,36 @@
+.topics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-all {
+  display: flex;
+  justify-content: flex-end;
+  color: black;
+  text-decoration: none;
+  font-size: 0.7rem;
+  padding: 0 10px 0;
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+.topics-nav {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.topics-nav a {
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.666);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.topics-nav a.all-button {
+  color: orange;
+}

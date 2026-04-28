@@ -1,0 +1,49 @@
+.article-card {
+  padding: 10rem 5rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.article-content {
+  max-width: 1080px;
+  height: 567px;
+  margin: 0 auto;
+  padding-left: 3rem;
+}
+.article-date {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  color: #3d3c3c;
+  margin-bottom: 3rem;
+  min-width: 1080px;
+}
+.article-line {
+  display: inline-flex;
+  width: 50px;
+  height: 2px;
+  background-color: #c4c4c4;
+  flex-shrink: 0;
+  border: 1px;
+  margin: 5px;
+}
+
+.article-content p {
+  font-size: 1rem;
+  line-height: 1.8rem;
+  width: 860px;
+  color: #3333338c;
+  margin-bottom: 1.5rem;
+}
+
+.article-quote {
+  font-size: 2.2rem;
+  color: #c8914a;
+  font-weight: bold;
+  line-height: 2.5rem;
+  margin: 1rem 2rem;
+  display: block;
+  margin-bottom: 2rem;
+}

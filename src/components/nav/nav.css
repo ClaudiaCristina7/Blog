@@ -1,0 +1,29 @@
+.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  flex: 1;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  margin-left: auto;
+  gap: 2rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: solid;
+  font-size: 15px;
+}
+
+.nav a.home {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 140, 0, 0.753);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 10px;
+}
