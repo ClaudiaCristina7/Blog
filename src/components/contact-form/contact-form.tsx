@@ -13,10 +13,17 @@ export default function ContactForm() {
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
+
   const [country, setCountry] = useState("");
+
   const [textMessage, setTextMessage] = useState("");
+  const [textMessageError, setTextMessageError] = useState("");
+
   const [option, setOption] = useState("");
+  const [optionsError, setOptionsError] = useState("");
 
   function validateEmail(value: string) {
     if (
@@ -28,6 +35,76 @@ export default function ContactForm() {
     } else {
       setEmailError("");
     }
+  }
+
+  function validateFirstName(value: string) {
+    const onlyLetters = /^[a-zA-Z\s]+$/;
+    if (value.trim().length < 2) {
+      setFirstNameError("Name must have at least 2 characters");
+      return false;
+    } else if (!onlyLetters.test(firstName)) {
+      setFirstNameError("Name must contain only letters");
+      return false;
+    } else {
+      setFirstNameError("");
+      return true;
+    }
+  }
+
+  function validateLastName(value: string) {
+    const onlyLetters = /^[a-zA-Z\s]+$/;
+    if (value.trim().length < 2) {
+      setLastNameError("Name must have at least 2 characters");
+      return false;
+    } else if (!onlyLetters.test(firstName)) {
+      setLastNameError("Name must contain only letters");
+      return false;
+    } else {
+      setFirstNameError("");
+      return true;
+    }
+  }
+
+  function validatePhoneNumber(value: string) {
+    if (value.trim() === "") {
+      setPhoneNumberError("Please enter a phone number");
+      return false;
+    } else if (value.length < 10) {
+      setPhoneNumberError("Phone number must have at least 10 digits");
+      return false;
+    } else if (value.length > 15) {
+      setPhoneNumberError("Phone number must have at most 15 digits");
+      return false;
+    } else {
+      setPhoneNumberError("");
+      return true;
+    }
+  }
+
+  function validateForm() {
+    let isValid = true;
+
+    if (country === "") {
+      setCountryError("Please select a country");
+      isValid = false;
+    } else {
+      setCountryError("");
+    }
+    if (option === "") {
+      setOptionsError("Please select a message subject");
+      isValid = false;
+    } else {
+      setOptionsError("");
+    }
+
+    if (textMessage.trim() === "") {
+      setTextMessageError("Please enter a message");
+      isValid = false;
+    } else {
+      setTextMessageError("");
+    }
+
+    return isValid;
   }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -51,36 +128,6 @@ export default function ContactForm() {
 
     console.log("Form submitted");
 
-    if (firstName.trim().length < 2) {
-      alert("Name must have at least 2 characters");
-      return;
-    }
-
-    if (emailError || email.trim() === "") {
-      alert("Please enter a valid email");
-
-      return;
-    }
-    if (phoneNumber.trim() === "") {
-      alert("Please enter a phone number");
-      return;
-    }
-
-    if (country === "") {
-      alert("Please select a country");
-      return;
-    }
-
-    if (option === "") {
-      alert("Please select a message subject");
-      return;
-    }
-
-    if (textMessage.trim() === "") {
-      alert("Please enter a message");
-      return;
-    }
-
     const form = e.currentTarget;
     const formData = new FormData(form);
 
@@ -96,7 +143,10 @@ export default function ContactForm() {
     fetch("https://restcountries.com/v3.1/all?fields=name")
       .then((res) => res.json())
       .then((data) => {
-        const sorted = data.map((country) => country.name.common).sort();
+        const sorted = data
+          .map((c: { name: { common: string } }) => c.name.common)
+          .sort(); //adaugă tipul si redenumește parametrul
+
         setCountries(sorted);
       });
   }, []);
@@ -125,40 +175,59 @@ export default function ContactForm() {
         <fieldset className="name-input">
           <label htmlFor="firstName">Your Name</label>
 
-          <input
-            type="text"
-            placeholder="First Name"
-            id="firstName"
-            name="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
+          <div>
+            <input
+              type="text"
+              placeholder="First Name"
+              id="firstName"
+              name="firstName"
+              value={firstName}
+              onChange={(e) => {
+                setFirstName(e.target.value);
+                validateFirstName(e.target.value);
+              }}
+              onBlur={() => validateFirstName(firstName)}
+            />
+            {firstNameError && (
+              <span className="error-message">{firstNameError}</span>
+            )}
+          </div>
 
-          <input
-            type="text"
-            placeholder="Last Name"
-            id="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
+          <div>
+            <input
+              type="text"
+              placeholder="Last Name"
+              id="lastName"
+              value={lastName}
+              onChange={(e) => {
+                setLastName(e.target.value);
+                validateLastName(e.target.value);
+              }}
+              onBlur={() => validateLastName(firstName)}
+            />
+            {firstNameError && (
+              <span className="error-message">{lastNameError}</span>
+            )}
+          </div>
         </fieldset>
 
         <fieldset className="form-field">
           <label htmlFor="email">Your Email</label>
-          <input
-            type="email"
-            placeholder="e.g.hello@contact.com"
-            id="email"
-            name="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              validateEmail(e.target.value);
-            }}
-          />
-          {emailError && emailError.length > 0 && (
-            <span className="error-message">{emailError}</span>
-          )}
+          <div>
+            <input
+              type="email"
+              placeholder="e.g.hello@contact.com"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+
+                validateEmail(e.target.value);
+              }}
+            />
+            {emailError && <span className="error-message">{emailError}</span>}
+          </div>
         </fieldset>
 
         <fieldset className="form-field">
@@ -167,8 +236,15 @@ export default function ContactForm() {
             type="number"
             id="phoneNumber"
             value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            onChange={(e) => {
+              setPhoneNumber(e.target.value);
+              validatePhoneNumber(e.target.value);
+            }}
+            onBlur={() => validatePhoneNumber(phoneNumber)}
           />
+          {phoneNumberError && (
+            <span className="error-message">{phoneNumberError}</span>
+          )}
         </fieldset>
 
         <fieldset className="form-field">
@@ -179,7 +255,12 @@ export default function ContactForm() {
             id="country"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
+            onBlur={() => validateForm()}
           >
+            {countryError && (
+              <span className="error-message">{countryError}</span>
+            )}
+
             <option value="">Select Country</option>
             {countries.map((country) => (
               <option key={country} value={country}>
@@ -196,8 +277,13 @@ export default function ContactForm() {
             className="select-input"
             id="messageSubject"
             value={option}
-            onChange={(e) => setOption(e.target.value)}
+            onChange={(e) => setTextMessage(e.target.value)}
+            onBlur={() => validateForm()}
           >
+            {optionsError && (
+              <span className="error-message">{optionsError}</span>
+            )}
+
             <option>Info Request</option>
             <option>Technical Issue</option>
             <option>Complaint</option>
@@ -215,7 +301,12 @@ export default function ContactForm() {
               id="message"
               value={textMessage}
               onChange={(e) => setTextMessage(e.target.value)}
-            ></textarea>
+              onBlur={() => validateForm()}
+            >
+              {textMessageError && (
+                <span className="error-message">{textMessageError}</span>
+              )}
+            </textarea>
           </fieldset>
         </div>
 

@@ -15,7 +15,7 @@
   z-index: 2;
   max-width: 800px;
   margin: auto;
-  background: rgba(255, 255, 255, 0.081);
+  background: rgba(255, 255, 255, 0.133);
   border-radius: 10px;
   padding: 1rem 1rem 5rem;
   max-height: 100vh;
@@ -39,6 +39,7 @@
   height: 50px;
   display: flex;
   align-items: center;
+  color: aliceblue;
 }
 .form-field input {
   width: 350px;
@@ -56,6 +57,7 @@
   flex-direction: row;
   align-items: center;
   gap: 1.2rem;
+  color: aliceblue;
 }
 .name-input input {
   width: 165px;
@@ -111,6 +113,7 @@ fieldset {
 .form-title {
   font-size: 2rem;
   margin-left: 1rem;
+  color: aliceblue;
 }
 
 .form-message {
@@ -118,6 +121,7 @@ fieldset {
   margin-bottom: 1rem;
   margin-top: 1rem;
   margin-right: 2rem;
+  color: aliceblue;
 }
 
 .message {
@@ -128,6 +132,7 @@ fieldset {
   margin-bottom: 1rem;
   font-weight: bold;
   font-size: 1rem;
+  color: aliceblue;
 }
 
 .message textarea {
@@ -140,4 +145,12 @@ fieldset {
   border-radius: 15px;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.637);
+}
+.error-message {
+  color: rgba(205, 70, 70, 0.96);
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 4px;
+  margin-left: 1rem;
+  display: block; /* forțează să apară pe linie nouă, sub input */
 }
