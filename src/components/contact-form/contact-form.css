@@ -154,3 +154,10 @@ fieldset {
   margin-left: 1rem;
   display: block; /* forțează să apară pe linie nouă, sub input */
 }
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.47);
+}
+.select-input {
+  color: rgba(0, 0, 0, 0.47);
+}

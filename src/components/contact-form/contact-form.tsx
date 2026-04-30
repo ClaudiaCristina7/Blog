@@ -235,6 +235,7 @@ export default function ContactForm() {
           <input
             type="number"
             id="phoneNumber"
+            placeholder="e.g.(555) 555-555"
             value={phoneNumber}
             onChange={(e) => {
               setPhoneNumber(e.target.value);
