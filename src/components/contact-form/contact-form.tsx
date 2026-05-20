@@ -117,6 +117,24 @@ export default function ContactForm() {
       country,
     });
 
+    console.log("Form submitted");
+
+    fetch("http://localhost:3000/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        country,
+        option,
+        textMessage,
+      }),
+    })
+      .then((res: Response) => res.json())
+      .then((data: unknown) => console.log("API response:", data));
+
     setFirstName("");
     setEmailError("");
     setCountries([]);
@@ -125,18 +143,6 @@ export default function ContactForm() {
     setCountry("");
     setTextMessage("");
     setOption("");
-
-    console.log("Form submitted");
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "post",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => console.log("API response:", data));
   }
 
   useEffect(() => {
@@ -205,7 +211,7 @@ export default function ContactForm() {
               }}
               onBlur={() => validateLastName(firstName)}
             />
-            {firstNameError && (
+            {lastNameError && (
               <span className="error-message">{lastNameError}</span>
             )}
           </div>
@@ -278,7 +284,7 @@ export default function ContactForm() {
             className="select-input"
             id="messageSubject"
             value={option}
-            onChange={(e) => setTextMessage(e.target.value)}
+            onChange={(e) => setOption(e.target.value)}
             onBlur={() => validateForm()}
           >
             {optionsError && (
@@ -303,11 +309,10 @@ export default function ContactForm() {
               value={textMessage}
               onChange={(e) => setTextMessage(e.target.value)}
               onBlur={() => validateForm()}
-            >
-              {textMessageError && (
-                <span className="error-message">{textMessageError}</span>
-              )}
-            </textarea>
+            />
+            {textMessageError && (
+              <span className="error-message">{textMessageError}</span>
+            )}
           </fieldset>
         </div>
 
