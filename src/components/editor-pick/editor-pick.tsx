@@ -11,8 +11,11 @@ export interface Data {
   link: string;
   content: string;
 }
+interface EditorPickProps {
+  title?: string;
+}
 
-export default function EditorPick() {
+export default function EditorPick({ title }: EditorPickProps) {
   const [data, setData] = useState<Data[]>([]);
 
   useEffect(() => {
@@ -24,7 +27,7 @@ export default function EditorPick() {
 
   return (
     <section className="editor-section">
-      <h1 className="editor-pick">Editor's Pick</h1>
+      <h1 className="editor-pick">{title || "Editor's Pick"}</h1>
       <Cards data={data} />{" "}
     </section>
   );
