@@ -20,7 +20,7 @@ export default function Populartopics() {
   const [color, setColor] = useState("red");
 
   useEffect(() => {
-    fetch("http://localhost:3000/cards")
+    fetch("https://travel-magazine-0id9.onrender.com/cards")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

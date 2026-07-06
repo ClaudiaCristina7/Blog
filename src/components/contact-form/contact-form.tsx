@@ -131,7 +131,7 @@ export default function ContactForm() {
       textMessage,
     });
 
-    fetch("http://localhost:3000/contacts", {
+    fetch("https://travel-magazine-0id9.onrender.com/contacts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

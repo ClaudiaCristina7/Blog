@@ -173,5 +173,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(3000, () => {
-  console.log("Server pornit pe http://localhost:3000");
+  console.log("Server pornit pe https://travel-magazine-0id9.onrender.com");
 });

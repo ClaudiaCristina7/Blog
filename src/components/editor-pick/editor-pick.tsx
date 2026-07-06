@@ -16,7 +16,7 @@ export default function EditorPick() {
   const [data, setData] = useState<Data[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/Editor_Pick")
+    fetch("https://travel-magazine-0id9.onrender.com/Editor_Pick")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err: Error) => console.log(err.message));
