@@ -5,14 +5,13 @@ import Cards from "../cards/cards";
 import { useEffect, useState } from "react";
 
 export interface Data {
-  number: number;
+  tag: string;
+  image: string;
+  alt: string;
+  time: string;
   title: string;
-  originalTitle: string;
-  releaseDate: string;
-  description: string;
-  pages: number;
-  cover: string;
-  index: number;
+  link: string;
+  content: string;
 }
 
 export default function Populartopics() {
@@ -21,27 +20,10 @@ export default function Populartopics() {
   const [color, setColor] = useState("red");
 
   useEffect(() => {
-    async function myPromiseData() {
-      return fetch("https://potterapi-fedeperin.vercel.app/en/books")
-        .then((response) => response.json())
-        .then((result) => {
-          const cardsData = result.map((card: Data) => ({
-            tag: "FANTASY",
-            image: card.image,
-            alt: card.title,
-            time: card.date,
-            title: card.title,
-            link: "/post",
-            content: card.description,
-          }));
-
-          setData(cardsData);
-        });
-    }
-    myPromiseData();
+    fetch("http://localhost:3000/cards")
+      .then((res) => res.json())
+      .then((data) => setData(data));
   }, []);
-
-  console.log("datele mele sunt", data);
 
   return (
     <section className="page-section">

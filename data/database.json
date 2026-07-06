@@ -9,6 +9,16 @@
       "option": "Technical Issue",
       "textMessage": "message",
       "id": "IWjT87jyAyM"
+    },
+    {
+      "firstName": "Cristina",
+      "lastName": "Dolhan",
+      "email": "claudiacristina949@yahoo.com",
+      "phoneNumber": "0757139872",
+      "country": "Romania",
+      "option": "Technical Issue",
+      "textMessage": "technical issue",
+      "id": "R-SS_58Rjxo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,18 +1,36 @@
-.contact-form-wrapper {
+.contact-page {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+.contact-left {
+  width: 55%;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.contact-form-wrapper .form-container {
-  position: absolute; /*ca sa vina formul peste hero section*/
-  top: 7%;
-  left: 25%;
-  z-index: 10;
-  padding: 1rem;
-  border-radius: 10px;
-  max-width: 850px;
-  max-height: 100vh;
+.contact-left .hero-image {
+  flex: 1;
+}
+.contact-left header {
+  transform: scale(0.9);
+  transform-origin: top left;
+  width: 115%;
+}
+.contact-right {
+  width: 45%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow-y: auto;
 }
 
-.contact-form-wrapper .hero-content {
-  display: none;
+.contact-footer {
+  width: 100%;
+  margin-top: -5rem;
 }

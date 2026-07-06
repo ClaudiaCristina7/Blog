@@ -14,9 +14,9 @@ const router = createBrowserRouter([
       { index: true, Component: Homepage },
       { path: "post", Component: BlogPage },
       { path: "second-page", Component: SecondPage },
-      { path: "contact-form", Component: ContactPage },
     ],
   },
+  { path: "contact-form", Component: ContactPage },
 ]);
 
 export default router;

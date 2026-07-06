@@ -1,59 +1,31 @@
 import "./editor pick.css";
-import Mountains from "../../assets/Mountains.jpg";
-import Vintage from "../../assets/Vintage-car.jpg";
-import River from "../../assets/River.jpg";
+import Cards from "../cards/cards";
+import { useEffect, useState } from "react";
 
-export default function EditorPick({ title = "Editor's Pick" }) {
+export interface Data {
+  tag: string;
+  image: string;
+  alt: string;
+  time: string;
+  title: string;
+  link: string;
+  content: string;
+}
+
+export default function EditorPick() {
+  const [data, setData] = useState<Data[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/Editor_Pick")
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((err: Error) => console.log(err.message));
+  }, []);
+
   return (
     <section className="editor-section">
-      <h1 className="editor-pick">{title}</h1>
-
-      <section className="e-cards">
-        <div className="e-card">
-          <span className="editor-description">FASHION</span>
-          <img src={Mountains} alt="Mountains" />
-
-          <div className="e-card-overlay">
-            <time>08.08.2021</time>
-            <h2>Richird Norton photorealistic rendering as real photos</h2>
-            <p>
-              Progressively incentivize cooperative systems through technically
-              sound functionalities. Credibly productivize seamless data with
-              flexible schemas.
-            </p>
-          </div>
-        </div>
-        <div className="e-card">
-          <span className="editor-description">FASHION</span>
-
-          <img src={Vintage} alt="vintage-car" />
-          <div className="e-card-overlay">
-            <time>08.08.2021</time>
-            <h2>Richird Norton photorealistic rendering as real photos</h2>
-            <p>
-              Progressively incentivize cooperative systems through technically
-              sound functionalities. Credibly productivize seamless data with
-              flexible schemas.
-            </p>
-          </div>
-        </div>
-        <div className="e-card">
-          <span className="editor-description">FASHION</span>
-
-          <img src={River} alt="River" />
-
-          <div className="e-card-overlay">
-            <time>08.08.2021</time>
-            <h2>What collectors need to know about authenticity</h2>
-            <p>
-              Progressively incentivize cooperative systems through technically
-              sound functionalities. Credibly productivize seamless data with
-              flexible schemas.
-            </p>
-          </div>
-        </div>
-        <section />{" "}
-      </section>
+      <h1 className="editor-pick">Editor's Pick</h1>
+      <Cards data={data} />{" "}
     </section>
   );
 }

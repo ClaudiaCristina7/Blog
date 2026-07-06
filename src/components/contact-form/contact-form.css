@@ -15,7 +15,6 @@
   z-index: 2;
   max-width: 800px;
   margin: auto;
-  background: rgba(255, 255, 255, 0.133);
   border-radius: 10px;
   padding: 1rem 1rem 5rem;
   max-height: 100vh;
@@ -28,6 +27,7 @@
   gap: 2rem;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .form-field label {
@@ -38,8 +38,8 @@
   font-weight: bold;
   height: 50px;
   display: flex;
-  align-items: center;
-  color: aliceblue;
+  align-self: flex-start;
+  color: rgb(39, 42, 48);
 }
 .form-field input {
   width: 350px;
@@ -57,7 +57,8 @@
   flex-direction: row;
   align-items: center;
   gap: 1.2rem;
-  color: aliceblue;
+  color: rgb(39, 42, 48);
+  padding: 1cap;
 }
 .name-input input {
   width: 165px;
@@ -68,6 +69,7 @@
   background-color: rgba(255, 255, 255, 0.637);
   margin-bottom: 1rem;
   height: 50px;
+  padding-bottom: 1rem;
 }
 
 .name-input label {
@@ -81,6 +83,9 @@
   padding: 0.5rem;
   border: 1px solid #ccccccdc;
   border-radius: 15px;
+}
+.message-input label {
+  color: rgb(39, 42, 48);
 }
 
 .submit-button {
@@ -112,16 +117,18 @@ fieldset {
 }
 .form-title {
   font-size: 2rem;
-  margin-left: 1rem;
-  color: aliceblue;
+  align-items: flex-start;
+  margin-left: 5rem;
+  color: rgb(39, 42, 48);
 }
 
 .form-message {
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   margin-top: 1rem;
-  margin-right: 2rem;
-  color: aliceblue;
+  margin-left: 4rem;
+  align-self: flex-start;
+  color: rgb(39, 42, 48);
 }
 
 .message {
@@ -130,9 +137,11 @@ fieldset {
   align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1rem;
+
+  margin-left: 0.5rem;
   font-weight: bold;
   font-size: 1rem;
-  color: aliceblue;
+  color: rgb(39, 42, 48);
 }
 
 .message textarea {
@@ -146,17 +155,25 @@ fieldset {
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.637);
 }
+.input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 .error-message {
+  position: absolute;
+  bottom: -22px;
   color: rgba(205, 70, 70, 0.96);
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
-  margin-top: 4px;
-  margin-left: 1rem;
+  margin: 0;
+  left: 0;
   display: block; /* forțează să apară pe linie nouă, sub input */
 }
 
 ::placeholder {
   color: rgba(0, 0, 0, 0.47);
+  font-family: "Lora", serif;
 }
 .select-input {
   color: rgba(0, 0, 0, 0.47);
